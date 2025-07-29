@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - database
+    networks:
+      - descarte-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - descarte-network
+
+  database:
+    image: alpine:latest
+    command: ["sh", "-c", "mkdir -p /data && tail -f /dev/null"]
+    volumes:
+      - ./data:/data
+    networks:
+      - descarte-network
+
+volumes:
+  data:
+
+networks:
+  descarte-network:
+    driver: bridge

@@ -1,0 +1,45 @@
+# Arquivo de configuração do Git para ignorar arquivos desnecessários
+
+# Compilados Java
+backend/target/
+backend/*.jar
+backend/*.war
+backend/*.ear
+
+# Dependências Node.js
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# Banco de dados SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# IDEs
+.vscode/
+.idea/
+*.iml
+.eclipse/
+
+# Logs
+*.log
+logs/
+
+# Arquivos temporários
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+.env.local
+.env.production
+
+# Arquivos de backup
+*.bak
+*.backup
+
+# Arquivos de sistema
+.sys
